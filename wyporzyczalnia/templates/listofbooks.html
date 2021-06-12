@@ -1,0 +1,30 @@
+{% extends 'glowny.html' %}
+{% load static %}
+{% block tytul %} Lista Książek{% endblock %}
+ {% block strona %}
+
+{% if my_book_list|length == 0 %}
+<h2>Brak książek w bazie</h2>
+{% else %}
+<div class="card-body bg-dark text-white "style="width: 90%; margin: 5%">
+    {% for book in my_book_list %}
+
+
+
+                  <div class="row">
+                    <div class="col-3">
+                        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> {{ book.author }}
+                        <img src="/media/{{ book.image }}" class="film-plakat" style="width:75%;">
+                   </div>
+                      <div class="col-9">
+                       <p class="card-text">{{book.description}}</p>
+                   </div>
+                   </div>
+
+                     <hr>
+
+        {% endfor %}
+    {% endif %}
+  </div>
+
+{% endblock %}

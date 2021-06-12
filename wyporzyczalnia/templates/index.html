@@ -1,0 +1,32 @@
+{% extends 'glowny.html' %}
+{% load static %}
+{% block tytul %} Strona Główna biblioteki {% endblock %}
+<div class="col-sm-10 ">{% block strona %}
+  <div class="card bg-dark" style="width: 36rem; margin:10px">
+  <div class="card-body bg-dark">
+    <h3>Dane o wyposarzeniu Biblioteki</h3>
+  <h5>Biblioteka posiada następujące zasoby:</h5>
+
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <div class="col-sm-10 ">
+  <div class="card bg-dark" style="width: 18rem; ">
+    {% for genre in type_genres %}
+      <li><strong>Genres:</strong> {{ genre.name }}</li>
+    {% endfor  %}
+        </div>
+    </div>
+
+    <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+
+{% endblock %}
+
+    </div>
+    </div>
+</div>
+
+
+
+
